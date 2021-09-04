@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+  <!-- Home page links -->
+  <!-- aos css file cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- magnific popup css cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+  <!-- bootstrap cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="{%static 'css/style.css'%}">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- jquery cdn link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- magnific popup js link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+  <!-- aos js file cdn link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- custom js link  -->
+  <script src="{%static 'JS/main.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+  <title>contactus</title>
+  <style>
+    .dropdown {
+      font-size: 2rem;
+      padding: 2rem;
+    }
+
+    .dropdown ul li a {
+      display: none;
+      padding: 2%;
+    }
+
+    /* .dropdown:hover ul li{
+            dislay:block;
+          } */
+    .dropdown-item {
+      font-size: 2rem;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 4rem;
+      padding: 1rem;
+      padding-top: 8rem;
+      color: var(--black);
+    }
+
+    .heading span {
+      color: var(--blue);
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 2rem 1rem;
+      z-index: 1000;
+    }
+
+    .header-active {
+      background: #fff;
+      box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .3);
+      padding: .5rem 1rem;
+    }
+
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: var(--black);
+    }
+
+    header a:hover {
+      color: var(--blue);
+    }
+
+    header .container .logo {
+      font-size: 4.5rem;
+    }
+
+    header .container .logo span {
+      color: var(--blue);
+    }
+
+    header .nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+    }
+
+    header .nav ul li {
+      margin: 0 2rem;
+    }
+
+    header .nav ul li a {
+      font-size: 2rem;
+    }
+
+    header .fa-bars {
+      font-size: 3.5rem;
+      color: var(--blue);
+      cursor: pointer;
+      display: none;
+    }
+
+    /* -----------footer section------------*/
+    .footer {
+      background: var(--black);
+    }
+
+    .footer p {
+      font-size: 1.5rem;
+      color: #eee;
+      padding: 1rem 0;
+    }
+
+    .footer .col-md-4 {
+      padding: 1.3rem
+    }
+
+    .footer .col-md-4:nth-child(1) a {
+      font-size: 3rem;
+      color: #fff;
+    }
+
+    .footer .col-md-4:nth-child(1) a span {
+      color: var(--blue);
+    }
+
+    .footer a {
+      font-size: 2rem;
+      color: #ccc;
+      display: block;
+    }
+
+    .footer h3 {
+      color: #fff;
+      font-size: 3rem;
+    }
+
+    .footer a:hover {
+      color: var(--blue);
+    }
+
+    .footer .credit {
+      color: #fff;
+      width: 80%;
+      margin: 0;
+      padding: 2rem 0;
+      padding-bottom: 4rem;
+      border-top: .1rem solid #ccc !important;
+    }
+
+    .footer .credit span {
+      color: var(--blue);
+    }
+
+
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      opacity: 1;
+      transition: opacity 0.6s;
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: 100;
+    }
+
+    .alert.success {
+      background-color: #007bff;
+    }
+
+    .alert.info {
+      background-color: #4CAF50;
+    }
+
+    .alert.warning {
+      background-color: #ff9800;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <a href="{% url 'home' %}" class="logo" style="font-size: 3rem;"><span>H</span>ealth<span>C</span>are</a>
+
+    <div class="header-right">
+      <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+      <a href="{% url 'signup' %}"><i class="fa fa-user-circle" aria-hidden="true"></i>Login/Register</a>
+      <a href="{% url 'patientinfo' %}"><i class="fa fa-address-card" aria-hidden="true"></i>
+        Patient info</a>
+      <div class="dropdown">
+        <button class="dropbtn"><i class="fa fa-list-alt" aria-hidden="true"></i>Services
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+      <a href="{% url 'contactus' %}"><i class="fa fa-phone" aria-hidden="true"></i>contact us</a>
+
+
+
+    </div>
+  </div>
+
+
+  {% if messages %}
+  {% for message in messages %}
+  <br>
+  <div class="alert {{ message.tags }}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>{{message}}</strong>
+  </div>
+  {% endfor %}
+  {% endif %}
+  <br><br>
+  <div class="container contact-form">
+
+    <form method="post">
+      {% csrf_token %}
+      <h3>Drop Us a Message</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Your Name *" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" style="text-transform: none;"
+              placeholder="Your Email *" />
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" name="phone" placeholder="Your Phone Number *" />
+          </div>
+          <div class="form-group">
+            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <textarea class="form-control" name="message" style="text-transform: none;" placeholder="Your Message *"
+              style="width: 100%; height: 150px;"></textarea>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <section class="footer">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <a href="#" class="logo"><span>H</span>ealth<span>C</span>are.</a>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur nemo porro quasi minima consequuntur
+            dolorum, quas amet in autem id?</p>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h3>links</h3>
+          <a href="index.html">home</a>
+          <a href="login.html">Login</a>
+          <a href="patientinfo.html">Patient info</a>
+          <a href="#">Services</a>
+          <a href="contactus.html">contactus</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h3>share</h3>
+          <a href="#">facebook</a>
+          <a href="#">twitter</a>
+          <a href="#">instagram</a>
+          <a href="#">github</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>

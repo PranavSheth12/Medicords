@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient Information Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/patientinfo.css' %}">
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            opacity: 1;
+            transition: opacity 0.6s;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 100;
+        }
+
+        .alert.success {
+            background-color: #007bff;
+        }
+
+        .alert.info {
+            background-color: #4CAF50;
+        }
+
+        .alert.warning {
+            background-color: #ff9800;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="{% url 'home' %}" class="logo" style="font-size: 3rem;"><span>H</span>ealth<span>C</span>are</a>
+
+        <div class="header-right">
+            <a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+            <a href="{% url 'signup' %}"><i class="fa fa-user-circle" aria-hidden="true"></i>Login/Register</a>
+            <a href="{% url 'patientinfo' %}"><i class="fa fa-address-card" aria-hidden="true"></i>
+                Patient info</a>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-list-alt" aria-hidden="true"></i>Services
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+            <a href="{% url 'contactus' %}"><i class="fa fa-phone" aria-hidden="true"></i>contact us</a>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="form">
+            {% if messages %}
+            {% for message in messages %}
+            <br>
+            <div class="alert {{ message.tags }}">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>{{message}}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <div class="heading">
+                <h1>Patient Information Form</h1>
+            </div>
+            <!--Form-->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="wrap">
+                    <div class="f1">
+                        <label>First Name</label>
+                        <input type="text" name="firstname" />
+                        <span class="focus-input"></span>
+                    </div>
+                    <div class="f2">
+                        <label>Last Name</label>
+                        <input type="text" name="lastname" />
+                        <span class="focus-input"></span>
+                    </div>
+                </div>
+                <div class="wrap2">
+                    <label>Username</label>
+                    <input type="text" name="username">
+                    <span class="focus-input2"></span>
+                </div>
+                <div class="wrap2">
+                    <label>E-Mail</label>
+                    <input type="text" name="email">
+                    <span class="focus-input2"></span>
+                </div>
+                <div class="wrap2">
+                    <label>Phone Number</label>
+                    <input type="number" name="phone">
+                    <span class="focus-input2"></span>
+                </div>
+                <div class="wrap2">
+                    <label>Gender</label>
+                    <label for="gender">Male&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="gender" value="Male">
+                    </label>
+                    <label for="gender">Female
+                        <input type="radio" name="gender" value="Female">
+                    </label>
+
+                </div>
+                <div class="wrap2">
+                    <label>Upload report</label>
+                    <input type="file" name="report">
+                </div>
+                <button class="btn" type="submit">Register</button>
+            </form>
+        </div>
+        <!--Image-->
+        <div class="image">
+            <img src="{% static 'img/patient info.png' %}" class="img" alt="" />
+        </div>
+
+    </div>
+
+</body>
+
+</html>
